@@ -1,0 +1,487 @@
+:root {
+  --vtDarkBlue: #090940;
+  --vtButton: #de563b;
+  --vtGrey: #f9f9f9;
+  --vtBorders: #e0dedc;
+  --vtFooter: #625c51;
+  --mainBackground: #ffffff;
+
+  --vtPrimaryFont: "rigid-square", sans-serif;
+  --vtSecondaryFont: "yrsa", serif;
+
+  --vtMenuFont: 800 20px "rigid-square", sans-serif;
+  --vtH1Font: 800 36px "rigid-square", sans-serif;
+  --vtH2Font: 800 20px "rigid-square", sans-serif;
+}
+
+h1 {
+  font: var(--vtH1Font);
+  color: var(--vtDarkBlue);
+}
+
+h2 {
+  font: var(--vtH2Font);
+  color: var(--vtDarkBlue);
+}
+
+p {
+  font-family: var(--vtPrimaryFont);
+  font-size: 16px;
+  color: var(--vtDarkBlue);
+}
+
+/* NAVBAR  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* START MENU BAR */
+.header-logo {
+  padding: 0 20px;
+  margin: 30px 0px;
+}
+
+header {
+  width: 100%;
+  z-index: 2;
+}
+
+.toggler {
+  color: var(--vtDarkBlue);
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  right: 50px;
+}
+
+/* START NAVIGATION */
+nav {
+  width: 100%;
+  display: none;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--vtDarkBlue);
+  font: var(--vtMenuFont);
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* intro */
+
+.intro {
+  display: grid;
+  grid:
+    ". intro ." 1fr
+    / 1fr 5fr 1fr;
+  gap: 8px;
+
+  /* background-color: var(--vtGrey); */
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  margin-bottom: 75px;
+}
+
+.intro-text {
+  grid-area: intro;
+}
+
+.intro-text h1 {
+  margin-bottom: 20px;
+}
+
+/*                      
+                        DROPDOWN MENU 
+*/
+
+.categories {
+  display: none;
+}
+
+li a {
+  text-decoration: none;
+  color: var(--vtDarkBlue);
+  font-family: var(--vtPrimaryFont);
+  font-size: 16px;
+  padding-left: 20px;
+}
+
+.slide {
+  clear: both;
+  width: 100%;
+  height: 0px;
+  overflow: hidden;
+
+  transition: height 0.4s ease;
+}
+
+.slide li {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+}
+
+.slide li:nth-child(1)::before {
+  float: left;
+  left: 10%;
+  content: url(/assets/0-logo/1-icons/onderzoeken-en-begrijpen.svg);
+}
+
+.slide li:nth-child(2)::before {
+  float: left;
+  right: 10%;
+  content: url(/assets/0-logo/1-icons/organiseren-en-plannen.svg);
+}
+
+.slide li:nth-child(3)::before {
+  float: left;
+  left: 10%;
+  content: url(/assets/0-logo/1-icons/leren-over-anderen.svg);
+}
+
+.slide li:nth-child(4)::before {
+  float: left;
+  left: 10%;
+  content: url(/assets/0-logo/1-icons/leren-over-jezelf.svg);
+}
+
+.slide li:nth-child(5)::before {
+  float: left;
+  left: 10%;
+  content: url(/assets/0-logo/1-icons/communiceren.svg);
+}
+
+.slide li:nth-child(6)::before {
+  float: left;
+  left: 10%;
+  content: url(/assets/0-logo/1-icons/creatief.svg);
+}
+
+.categories-mobile {
+  width: 100%;
+  background: var(--vtGrey);
+  margin: 10px auto;
+  margin-bottom: 75px;
+}
+
+span {
+  padding: 30px;
+  background: var(--vtGrey);
+  color: var(--vtDarkBlue);
+  font-size: 1.2em;
+  cursor: pointer;
+  display: block;
+  font-family: var(--vtPrimaryFont);
+  font-weight: 800;
+  font-size: 16px;
+}
+
+span::after {
+  float: right;
+  right: 10%;
+  content: url(/assets/0-logo/1-icons/arrow-down.svg);
+}
+
+#touch {
+  position: absolute;
+  opacity: 0;
+  height: auto;
+}
+
+#touch:checked + .slide {
+  height: auto;
+}
+
+/* 
+                  METHODS */
+
+.methods {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.methods img {
+  width: 300px;
+  border: 1px solid;
+  border-color: var(--vtBorders);
+}
+
+.methods-titles {
+  width: 200px;
+}
+
+/*                          LOAD MORE  
+*/
+
+.method-hidden {
+  display: none;
+}
+
+.load-more {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.load-more-button {
+  background-color: var(--vtButton);
+  border: none;
+  width: 153px;
+  height: 54px;
+  font-family: var(--vtPrimaryFont);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--mainBackground);
+  cursor: pointer;
+}
+
+.load-less-button {
+  background-color: var(--vtButton);
+  border: none;
+  width: 153px;
+  height: 54px;
+  font-family: var(--vtPrimaryFont);
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  color: var(--mainBackground);
+  cursor: pointer;
+}
+
+footer {
+  background-color: var(--vtFooter);
+  color: var(--mainBackground);
+  padding: 50px;
+  margin-top: 100px;
+}
+
+footer h3 {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 10px;
+}
+
+/*
+                        RESPONSIVE TABLET  
+*/
+@media (min-width: 31em) {
+  .content {
+    padding: 0 50px;
+  }
+
+  .toggler {
+    display: none;
+  }
+
+  nav {
+    display: block !important; /* prevent the nav to hide when resize */
+    position: relative;
+    width: auto;
+    float: right;
+    padding: 5px 0;
+  }
+
+  nav ul {
+    float: left;
+  }
+
+  nav ul li {
+    display: inline-block;
+    padding-right: 50px;
+    color: var(--vtDarkBlue);
+    font: var(--vtMenuFont);
+  }
+  /* 
+                   DROPDOWN */
+
+  .categories {
+    display: none;
+  }
+
+  li a {
+    text-decoration: none;
+    color: var(--vtDarkBlue);
+    font-family: var(--vtPrimaryFont);
+    font-size: 18px;
+    padding-left: 20px;
+  }
+}
+
+@media (min-width: 45em) {
+  .categories {
+    display: none;
+  }
+  /* 
+                            methodes 
+                            */
+
+  main {
+    display: grid;
+    grid:
+      ". methods ." 1fr
+      / 0.5fr 3fr 0.5fr;
+    grid-auto-flow: dense; /* fill in empty cells */
+    margin-bottom: 100px;
+  }
+
+  .methods {
+    grid-area: methods;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-gap: 25px;
+  }
+
+  .methods img {
+    width: 100%;
+    height: auto;
+    border: 1px solid;
+    border-color: var(--vtBorders);
+  }
+}
+
+@media (min-width: 68em) {
+  .intro {
+    display: grid;
+    grid:
+      ". intro ." 1fr
+      / 0.75fr 3fr 0.75fr;
+    gap: 8px;
+
+    /* background-color: var(--vtGrey); */
+    padding-top: 25px;
+    padding-bottom: 25px;
+
+    margin-bottom: 75px;
+  }
+
+  .intro-text {
+    grid-area: intro;
+  }
+
+  .intro-text h1 {
+    font-size: 40px;
+  }
+
+  .intro-text p {
+    font-size: 20px;
+  }
+
+  /* 
+                  CATEGORIEEE */
+
+  .categories-mobile {
+    display: none;
+  }
+
+  .categories {
+    display: grid;
+    grid:
+      ". category ." 1fr
+      / 1fr 4fr 1fr;
+    margin-bottom: 50px;
+  }
+
+  .categories-container {
+    grid-area: category;
+  }
+
+  li a {
+    text-decoration: none;
+    color: var(--vtDarkBlue);
+    font-family: var(--vtPrimaryFont);
+    font-size: 20px;
+    padding-left: 40px;
+  }
+
+  .categorie-names li {
+    display: flex;
+    align-items: center;
+    padding-bottom: 30px;
+    list-style: none;
+    flex: 0 0 calc(33.33% - 20px);
+  }
+
+  .categorie-names {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .categorie-names li:nth-child(1)::before {
+    left: 10%;
+    content: url(/assets/0-logo/1-icons/onderzoeken-en-begrijpen.svg);
+  }
+
+  .categorie-names li:nth-child(2)::before {
+    right: 10%;
+    content: url(/assets/0-logo/1-icons/organiseren-en-plannen.svg);
+  }
+
+  .categorie-names li:nth-child(3)::before {
+    left: 10%;
+    content: url(/assets/0-logo/1-icons/leren-over-anderen.svg);
+  }
+
+  .categorie-names li:nth-child(4)::before {
+    left: 10%;
+    content: url(/assets/0-logo/1-icons/leren-over-jezelf.svg);
+  }
+
+  .categorie-names li:nth-child(5)::before {
+    left: 10%;
+    content: url(/assets/0-logo/1-icons/communiceren.svg);
+  }
+
+  .categorie-names li:nth-child(6)::before {
+    left: 10%;
+    content: url(/assets/0-logo/1-icons/creatief.svg);
+  }
+
+  /*
+                                  methods 
+    */
+
+  main {
+    display: grid;
+    grid:
+      ". methods ." 1fr
+      / 0.75fr 3fr 0.75fr;
+    grid-auto-flow: dense; /* fill in empty cells */
+    margin-bottom: 100px;
+  }
+
+  .methods {
+    grid-area: methods;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 25px;
+  }
+
+  .methods img {
+    width: 100%;
+    height: auto;
+    border: 1px solid;
+    border-color: var(--vtBorders);
+  }
+
+  h2 {
+    font-family: var(--vtPrimaryFont);
+    font-size: 24px;
+    color: var(--vtDarkBlue);
+  }
+}
