@@ -20,7 +20,8 @@ h1 {
 }
 
 h2 {
-  font: var(--vtH2Font);
+  font-family: "rigid-square", sans-serif;
+  font-weight: 800;
   color: var(--vtDarkBlue);
 }
 
@@ -28,6 +29,10 @@ p {
   font-family: var(--vtPrimaryFont);
   font-size: 16px;
   color: var(--vtDarkBlue);
+}
+
+a {
+  text-decoration: none;
 }
 
 /* NAVBAR  */
@@ -222,7 +227,9 @@ span::after {
 }
 
 .methods-titles {
-  width: 200px;
+  width: 100%;
+  margin-top: 20px;
+  word-break: break-word;
 }
 
 /*                          LOAD MORE  
@@ -303,10 +310,17 @@ footer h3 {
 
   nav ul li {
     display: inline-block;
-    padding-right: 50px;
+    padding-right: 30px;
+    padding-top: 5px;
     color: var(--vtDarkBlue);
     font: var(--vtMenuFont);
   }
+
+  .account {
+    padding-left: 30px;
+    padding-bottom: 15px;
+  }
+
   /* 
                    DROPDOWN */
 

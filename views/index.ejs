@@ -45,15 +45,17 @@
   <article class="methods">
     <% if (methods && methods.length > 0) { %>
     <% methods.forEach((method, index) => { %>
-    <section class=" method-container" data-index="<%= index %>">
-      <% if (method.template && method.template.url) { %>
-      <img src="<%= method.template.url %>" alt="Voorbeeld van <%= method.title%>">
-      <% } else { %>
-      <img src="/assets/placeholder.jpg" alt="Placeholder Image">
-      <% } %>
-      <section class="methods-titles">
-        <h2><%= method.title %></h2>
-      </section>
+    <section class="method-container" data-index="<%= index %>">
+      <a href="/methods/<%= method.slug %>?id=<%= method.id %>" class="link-detail-page">
+        <% if (method.template && method.template.url) { %>
+        <img src="<%= method.template.url %>" alt="Voorbeeld van <%= method.title %>">
+        <% } else { %>
+        <img src="/assets/placeholder.jpg" alt="Placeholder Image">
+        <% } %>
+        <section class="methods-titles">
+          <h2><%= method.title %></h2>
+        </section>
+      </a>
     </section>
     <% }); %>
     <% } %>
@@ -65,6 +67,7 @@
     <button class="load-more-button">Laad Meer</button>
   </div>
 </section>
+
 </body>
 
 </html>

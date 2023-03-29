@@ -19,11 +19,20 @@ app.set("views", "./views");
 app.use(express.static("public"));
 
 // Maak een route voor de index
-app.get("/", function (req, res) {
-  // res.send('Hello World!')
-  res.render("index", data);
+app.get("/", async (req, res) => {
+  const data = await fetch(url).then((response) => response.json());
+  res.render("index", { methods: data.methods });
 });
 
+app.get("/methods/:slug", (request, response) => {
+  let detailPageUrl = url + "/methods" + request.params.slug;
+  const id = request.query.id;
+  console.log(id);
+
+  fetchJson(detailPageUrl).then((data) => {
+    response.render("detail-page", data);
+  });
+});
 // Stel het poortnummer in waar express op gaat luisteren
 app.set("port", process.env.PORT || 6500);
 
@@ -32,3 +41,14 @@ app.listen(app.get("port"), function () {
   // Toon een bericht in de console en geef het poortnummer door
   console.log(`Application started on http://localhost:${app.get("port")}`);
 });
+
+// **
+//  * Wraps the fetch api and returns the response body parsed through json
+//  * @param {*} url the api endpoint to address
+//  * @returns the json response from the api endpoint
+//  */
+async function fetchJson(url) {
+  return await fetch(url)
+    .then((response) => response.json())
+    .catch((error) => error);
+}
