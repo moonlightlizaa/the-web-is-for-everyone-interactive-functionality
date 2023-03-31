@@ -21,7 +21,7 @@ app.use(express.static("public"));
 // Maak een route voor de index
 app.get("/", async (req, res) => {
   const data = await fetch(url).then((response) => response.json());
-  res.render("index", { methods: data.methods });
+  res.render("index", data);
 });
 
 app.get("/methods/:slug", (request, response) => {
