@@ -6,7 +6,7 @@ import express from "express";
 const url = "https://api.visualthinking.fdnd.nl/api/v1/methods?first=100";
 const data = await fetch(url).then((response) => response.json());
 
-console.log(data);
+// console.log(data);
 
 // Maak een nieuwe express app aan
 const app = express();
@@ -20,19 +20,39 @@ app.use(express.static("public"));
 
 // Maak een route voor de index
 app.get("/", async (req, res) => {
-  const data = await fetch(url).then((response) => response.json());
+  let data = await fetch(url).then((response) => response.json());
+
+  // filter data als req.params.blah
+  if (true) {
+    let categorie = "Leren over anderen";
+
+    data.methods = data.methods.filter((method) => {
+      return (
+        method.categories.find((category) => {
+          return category.title == categorie;
+        }) !== undefined
+      );
+    });
+  }
   res.render("index", data);
 });
 
+// Detail pagina
+
 app.get("/methods/:slug", (request, response) => {
-  let detailPageUrl = url + "/methods" + request.params.slug;
+  let detailPageUrl =
+    "https://api.visualthinking.fdnd.nl/api/v1" +
+    "/method/" +
+    request.params.slug;
   const id = request.query.id;
-  console.log(id);
+
+  console.log(detailPageUrl);
 
   fetchJson(detailPageUrl).then((data) => {
     response.render("detail-page", data);
   });
 });
+
 // Stel het poortnummer in waar express op gaat luisteren
 app.set("port", process.env.PORT || 6500);
 
