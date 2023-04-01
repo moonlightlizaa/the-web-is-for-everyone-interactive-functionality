@@ -1,13 +1,26 @@
 <%- include('./partials/detail-page-head')%>
 
-       <h1>
-          <%= method.title %>
-        </h1>
 
+<section class="title">
+    <h1>
+        <%= method.title %>
+    </h1>
+    <section class="mini-nav">
+        <a href="/methods/<%= method.slug %>?id=<%= method.id %>" class="active">Beschrijving</a>
+        <a href="/method/<%= method.slug %>/stappenplan">Stappenplan</a>
+        <a href="/method/<%= method.slug %>/voorbeelden">Voorbeelden</a>
+    </section>
+</section>
+
+<section class="main-content">
+    <section class="example">
+        <img src="<%= method.template.url %>" class="template-image"  />
+    </section>
+    <section class="description">
         <p>
-            <%- method.description.html %>
+             <%- method.description.html %>
         </p>
-
-<section class=""></section>
+    </section>
+</section>
 
 <%- include('./partials/foot') %>

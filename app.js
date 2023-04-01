@@ -1,9 +1,10 @@
 // Importeer express uit de node_modules map
-import express from "express";
+import express, { request } from "express";
 
 // API
 
 const url = "https://api.visualthinking.fdnd.nl/api/v1/methods?first=100";
+const apiUrl = "https://api.visualthinking.fdnd.nl/api/v1";
 const data = await fetch(url).then((response) => response.json());
 
 // console.log(data);
@@ -49,6 +50,22 @@ app.get("/methods/:slug", (request, response) => {
 
   fetchJson(detailPageUrl).then((data) => {
     response.render("detail-page", data);
+  });
+});
+
+app.get("/method/:slug/stappenplan", (request, response) => {
+  let detailPageUrl = apiUrl + "method/" + request.params.slug;
+
+  fetchJson(detailPageUrl).then((data) => {
+    response.render("stappenplan", data);
+  });
+});
+
+app.get("/method/:slug/voorbeelden", (request, response) => {
+  let detailPageUrl = apiUrl + "method/" + request.params.slug;
+
+  fetchJson(detailPageUrl).then((data) => {
+    response.render("voorbeelden", data);
   });
 });
 

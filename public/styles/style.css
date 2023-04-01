@@ -25,7 +25,7 @@ h2 {
   color: var(--vtDarkBlue);
 }
 
-p {
+.intro p {
   font-family: var(--vtPrimaryFont);
   font-size: 16px;
   color: var(--vtDarkBlue);

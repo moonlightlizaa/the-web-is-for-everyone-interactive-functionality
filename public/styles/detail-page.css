@@ -15,12 +15,16 @@
   --vtH2Font: 800 20px "rigid-square", sans-serif;
 }
 
+/*
+                        MOBILE FIRST
+*/
+
 .line {
   background-color: var(--vtLightBlue);
   color: var(--mainBackground);
   text-transform: uppercase;
   font-family: var(--vtPrimaryFont);
-  padding: 10px 60px;
+  padding: 10px 0px 10px 60px;
 }
 
 .line::before {
@@ -28,8 +32,92 @@
 }
 
 .line span {
-  padding-left: 30px;
+  padding-left: 20px;
   display: inline;
+}
+
+/*
+                        title 
+*/
+
+.title {
+  background-color: var(--vtGrey);
+  padding: 30px 50px;
+}
+
+.mini-nav {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.mini-nav a {
+  font-family: var(--vtPrimaryFont);
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--vtLightBlue);
+
+  padding: 20px;
+}
+
+.mini-nav .active {
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-thickness: 0.2rem;
+  text-underline-offset: 0.5rem;
+}
+
+.mini-nav a:nth-child(1) {
+  padding-left: 0px;
+}
+
+/*
+                        main content
+*/
+
+.main-content {
+  display: grid;
+  grid:
+    ". example ." auto
+    ". text ." 1fr
+    / 0.5fr 3fr 0.5fr;
+
+  margin-top: 50px;
+}
+
+.example {
+  grid-area: example;
+}
+
+.description {
+  grid-area: text;
+}
+
+.template-image {
+  width: 100%;
+  border: 1px solid #dfdedc;
+  margin-bottom: 50px;
+}
+
+.description blockquote {
+  display: none;
+}
+
+.description ul li {
+  font-family: var(--vtSecondaryFont);
+  color: var(--vtDarkBlue);
+  font-size: 22px;
+  font-weight: 400;
+  margin-left: 30px;
+}
+
+.description p {
+  font-family: var(--vtSecondaryFont);
+  color: var(--vtDarkBlue);
+  font-size: 22px;
+  font-weight: 400;
 }
 
 /*
