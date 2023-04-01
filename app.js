@@ -4,7 +4,6 @@ import express, { request } from "express";
 // API
 
 const url = "https://api.visualthinking.fdnd.nl/api/v1/methods?first=100";
-const apiUrl = "https://api.visualthinking.fdnd.nl/api/v1";
 const data = await fetch(url).then((response) => response.json());
 
 // console.log(data);
@@ -54,6 +53,7 @@ app.get("/methods/:slug", (request, response) => {
 });
 
 app.get("/method/:slug/stappenplan", (request, response) => {
+  const apiUrl = "https://api.visualthinking.fdnd.nl/api/v1";
   let detailPageUrl = apiUrl + "method/" + request.params.slug;
 
   fetchJson(detailPageUrl).then((data) => {
@@ -62,6 +62,7 @@ app.get("/method/:slug/stappenplan", (request, response) => {
 });
 
 app.get("/method/:slug/voorbeelden", (request, response) => {
+  const apiUrl = "https://api.visualthinking.fdnd.nl/api/v1";
   let detailPageUrl = apiUrl + "method/" + request.params.slug;
 
   fetchJson(detailPageUrl).then((data) => {
