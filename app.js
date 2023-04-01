@@ -23,7 +23,7 @@ app.get("/", async (req, res) => {
   let data = await fetch(url).then((response) => response.json());
 
   // filter data als req.params.blah
-  if (true) {
+  if (false) {
     let categorie = "Leren over anderen";
 
     data.methods = data.methods.filter((method) => {
@@ -44,9 +44,8 @@ app.get("/methods/:slug", (request, response) => {
     "https://api.visualthinking.fdnd.nl/api/v1" +
     "/method/" +
     request.params.slug;
-  const id = request.query.id;
 
-  console.log(detailPageUrl);
+  const id = request.query.id;
 
   fetchJson(detailPageUrl).then((data) => {
     response.render("detail-page", data);

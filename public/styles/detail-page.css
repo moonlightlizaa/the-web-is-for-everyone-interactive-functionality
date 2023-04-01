@@ -1,0 +1,53 @@
+:root {
+  --vtDarkBlue: #090940;
+  --vtLightBlue: #31439c;
+  --vtButton: #de563b;
+  --vtGrey: #f9f9f9;
+  --vtBorders: #e0dedc;
+  --vtFooter: #625c51;
+  --mainBackground: #ffffff;
+
+  --vtPrimaryFont: "rigid-square", sans-serif;
+  --vtSecondaryFont: "yrsa", serif;
+
+  --vtMenuFont: 800 20px "rigid-square", sans-serif;
+  --vtH1Font: 800 36px "rigid-square", sans-serif;
+  --vtH2Font: 800 20px "rigid-square", sans-serif;
+}
+
+.line {
+  background-color: var(--vtLightBlue);
+  color: var(--mainBackground);
+  text-transform: uppercase;
+  font-family: var(--vtPrimaryFont);
+  padding: 10px 60px;
+}
+
+.line::before {
+  content: url(/assets/0-logo/1-icons/arrow-left.svg);
+}
+
+.line span {
+  padding-left: 30px;
+  display: inline;
+}
+
+/*
+                        RESPONSIVE start 
+*/
+@media (min-width: 31em) {
+}
+
+/*
+                        Tablet/ Laptop
+*/
+
+@media (min-width: 45em) {
+}
+
+/*
+                       Laptop
+*/
+
+@media (min-width: 68em) {
+}

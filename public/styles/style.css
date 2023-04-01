@@ -182,7 +182,7 @@ li a {
   margin-bottom: 75px;
 }
 
-span {
+.categories-mobile span {
   padding: 30px;
   background: var(--vtGrey);
   color: var(--vtDarkBlue);
@@ -194,7 +194,7 @@ span {
   font-size: 16px;
 }
 
-span::after {
+.categories-mobile span::after {
   float: right;
   right: 10%;
   content: url(/assets/0-logo/1-icons/arrow-down.svg);
