@@ -23,17 +23,17 @@ app.get("/", async (req, res) => {
   let data = await fetch(url).then((response) => response.json());
 
   // filter data als req.params.blah
-  if (false) {
-    let categorie = "Leren over anderen";
+  // if (false) {
+  //   let categorie = "Leren over anderen";
 
-    data.methods = data.methods.filter((method) => {
-      return (
-        method.categories.find((category) => {
-          return category.title == categorie;
-        }) !== undefined
-      );
-    });
-  }
+  //   data.methods = data.methods.filter((method) => {
+  //     return (
+  //       method.categories.find((category) => {
+  //         return category.title == categorie;
+  //       }) !== undefined
+  //     );
+  //   });
+  // }
   res.render("index", data);
 });
 
@@ -52,21 +52,31 @@ app.get("/methods/:slug", (request, response) => {
   });
 });
 
+// Stappenplan pagina
+
 app.get("/method/:slug/stappenplan", (request, response) => {
   const apiUrl = "https://api.visualthinking.fdnd.nl/api/v1";
-  let detailPageUrl = apiUrl + "method/" + request.params.slug;
+  let detailPageUrl = apiUrl + "/method/" + request.params.slug;
+
+  // console.log(1, detailPageUrl);
 
   fetchJson(detailPageUrl).then((data) => {
-    response.render("stappenplan", data);
+    // console.log(2, data);
+    const method = data;
+
+    response.render("stappenplan", method);
   });
 });
 
+// Voorbeelden pagina
+
 app.get("/method/:slug/voorbeelden", (request, response) => {
   const apiUrl = "https://api.visualthinking.fdnd.nl/api/v1";
-  let detailPageUrl = apiUrl + "method/" + request.params.slug;
+  let detailPageUrl = apiUrl + "/method/" + request.params.slug;
 
   fetchJson(detailPageUrl).then((data) => {
-    response.render("voorbeelden", data);
+    const method = data;
+    response.render("voorbeelden", method);
   });
 });
 
