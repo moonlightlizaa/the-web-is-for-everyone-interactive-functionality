@@ -1,3 +1,17 @@
 <%- include('./partials/detail-page-head')%>
 
+<section class="title">
+    <h1>
+        <%= method.title %>
+    </h1>
+    <section class="mini-nav">
+        <a href="/methods/<%= method.slug %>?id=<%= method.id %>" >Beschrijving</a>
+        <a href="/method/<%= method.slug %>/stappenplan">Stappenplan</a>
+        <a href="/method/<%= method.slug %>/voorbeelden" class="active">Voorbeelden</a>
+          <a href="/method/<%= method.slug %>/form?id=<%= method.id %>"" >Comments</a>
+    </section>
+  
+</section>
+
+
 <%- include('./partials/foot') %>

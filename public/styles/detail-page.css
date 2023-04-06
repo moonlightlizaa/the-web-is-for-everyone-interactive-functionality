@@ -4,6 +4,7 @@
   --vtButton: #de563b;
   --vtGrey: #f9f9f9;
   --vtBorders: #e0dedc;
+  --vtYellow: #feb51e;
   --vtFooter: #625c51;
   --mainBackground: #ffffff;
 
@@ -121,6 +122,39 @@
 }
 
 /*
+                        stappenplan
+*/
+
+.full-b {
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+.tags-b {
+  margin-left: 50px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: var(--vtYellow);
+  color: var(--vtDarkBlue);
+  font-family: var(--vtPrimaryFont);
+  font-size: 0.8rem;
+  font-weight: 800;
+  width: 450px;
+}
+
+.icon {
+  width: 50px;
+}
+
+.stappenplan {
+  flex-direction: column;
+  margin-left: 50px;
+}
+
+/*
                         RESPONSIVE start 
 */
 @media (min-width: 31em) {
@@ -131,6 +165,9 @@
 */
 
 @media (min-width: 45em) {
+  .description {
+    grid-area: text;
+  }
 }
 
 /*

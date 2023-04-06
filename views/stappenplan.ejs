@@ -5,13 +5,16 @@
         <%= method.title %>
     </h1>
     <section class="mini-nav">
-        <a href="/methods/<%= method.slug %>?id=<%= method.id %>" class="active">Beschrijving</a>
-        <a href="/method/<%= method.slug %>/stappenplan">Stappenplan</a>
+        <a href="/methods/<%= method.slug %>?id=<%= method.id %>" >Beschrijving</a>
+        <a href="/method/<%= method.slug %>/stappenplan" class="active">Stappenplan</a>
         <a href="/method/<%= method.slug %>/voorbeelden">Voorbeelden</a>
+         <a href="/method/<%= method.slug %>/comments" >Comments</a>
     </section>
-
   
 </section>
+
+
+
 
 
 <%- include('./partials/foot') %> 

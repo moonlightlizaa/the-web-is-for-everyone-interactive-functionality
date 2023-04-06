@@ -18,6 +18,10 @@ app.set("views", "./views");
 // Gebruik de map 'public' voor statische resources
 app.use(express.static("public"));
 
+// Stel afhandeling van formulieren inzx
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Maak een route voor de index
 app.get("/", async (req, res) => {
   let data = await fetch(url).then((response) => response.json());
@@ -80,8 +84,46 @@ app.get("/method/:slug/voorbeelden", (request, response) => {
   });
 });
 
+// Comments page
+
+app.get("/method/:slug/form", (request, response) => {
+  const baseurl = "https://api.visualthinking.fdnd.nl/api/v1";
+  const commentUrl = `${baseurl}comments` + "?id=" + request.query.id;
+
+  let detailPageUrl = baseurl + "/method/" + request.params.slug;
+
+  console.log(1, detailPageUrl);
+
+  fetchJson(detailPageUrl).then((data) => {
+    fetchJson(commentUrl).then((data2) => {
+      const newdata = { detail: data, form: data2, slug: request.params.slug };
+      response.render("form", newdata);
+    });
+  });
+});
+
+app.post("/method/:slug/form", (request, response) => {
+  const baseurl = "https://api.visualthinking.fdnd.nl/api/v1";
+  const url = `${baseurl}comments`;
+
+  postJson(url, request.body).then((data) => {
+    let newComment = { ...request.body };
+
+    if (data.success) {
+      response.redirect(
+        "/method/" + request.params.slug + "/form?id=" + request.body.methodId
+      );
+    } else {
+      const errormessage = `${data.message}: Werkt niet:(`;
+      const newdata = { error: errormessage, values: newComment };
+
+      response.render("form", newdata);
+    }
+  });
+});
+
 // Stel het poortnummer in waar express op gaat luisteren
-app.set("port", process.env.PORT || 6500);
+app.set("port", process.env.PORT || 6600);
 
 // Start express op, haal het ingestelde poortnummer op
 app.listen(app.get("port"), function () {
@@ -89,13 +131,31 @@ app.listen(app.get("port"), function () {
   console.log(`Application started on http://localhost:${app.get("port")}`);
 });
 
-// **
-//  * Wraps the fetch api and returns the response body parsed through json
-//  * @param {*} url the api endpoint to address
-//  * @returns the json response from the api endpoint
-//  */
+/**
+ * Wraps the fetch api and returns the response body parsed through json
+ * @param {*} url the api endpoint to address
+ * @returns the json response from the api endpoint
+ */
 async function fetchJson(url) {
   return await fetch(url)
+    .then((response) => response.json())
+    .catch((error) => error);
+}
+
+/**
+ * postJson() is a wrapper for the experimental node fetch api. It fetches the url
+ * passed as a parameter using the POST method and the value from the body paramater
+ * as a payload. It returns the response body parsed through json.
+ * @param {*} url the api endpoint to address
+ * @param {*} body the payload to send along
+ * @returns the json response from the api endpoint
+ */
+export async function postJson(url, body) {
+  return await fetch(url, {
+    method: "post",
+    body: JSON.stringify(body),
+    headers: { "Content-Type": "application/json" },
+  })
     .then((response) => response.json())
     .catch((error) => error);
 }
