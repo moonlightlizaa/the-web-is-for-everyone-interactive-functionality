@@ -97,6 +97,7 @@ app.get("/method/:slug/form", (request, response) => {
   fetchJson(detailPageUrl).then((data) => {
     fetchJson(commentUrl).then((data2) => {
       const newdata = { detail: data, form: data2, slug: request.params.slug };
+      console.log("DATA", newdata);
       response.render("form", newdata);
     });
   });

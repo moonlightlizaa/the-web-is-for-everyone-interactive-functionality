@@ -175,4 +175,83 @@
 */
 
 @media (min-width: 68em) {
+  .detail-body .comments {
+    margin-top: 2rem;
+  }
+
+  .detail-body .comments h2 {
+    color: var(--vtDarkBlue);
+    font-size: 0.5rem;
+  }
+
+  .detail-body .message {
+    color: var(--vtGrey);
+    opacity: 50%;
+    font-size: 0.45rem;
+  }
+
+  .detail-body .comments .comment {
+    border: 0.2em solid var(--vtBorders);
+    margin-bottom: 1rem;
+  }
+
+  .detail-body .comments .comment .comment-name {
+    background-color: var(--vtYellow);
+    color: var(--vtDarkBlue);
+    padding: 0.2rem;
+    margin-bottom: 0.15rem;
+    font-size: 0.5rem;
+  }
+
+  .detail-body .comments .comment .comment-text {
+    color: var(--vtDarkBlue);
+    margin: 0.2rem;
+    font-size: 0.45rem;
+  }
+
+  label,
+  input {
+    width: 100%;
+  }
+
+  label {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--vtPrimaryFont);
+    color: var(--vtDarkBlue);
+  }
+
+  legend {
+    color: var(--vtLightBlue);
+    text-transform: uppercase;
+    font-family: var(--rigid);
+    margin-bottom: 0.5rem;
+    font-size: 0.5rem;
+  }
+
+  input {
+    background-color: #e8e8e8;
+    border: 0.05rem solid #fafafa;
+    font-family: var(--rigid);
+    transition: 1.2s;
+    font-size: 20px;
+  }
+
+  .submit-button {
+    margin-top: 1rem;
+    background-color: var(--vtLightBlue);
+    color: var(--white);
+    font-family: var(--vtPrimaryFont);
+    transition: 1.2s;
+    font-size: 20px;
+  }
+
+  .submit-button:hover {
+    transform: scale(1.1);
+  }
+
+  fieldset {
+    border-style: none;
+    width: 50%;
+  }
 }

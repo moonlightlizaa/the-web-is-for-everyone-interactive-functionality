@@ -38,14 +38,7 @@
             </fieldset>
     </form>
 
-    <section class="comments">
-        <h2>Comment section</h2>
-        <% form.comments.forEach(comment=> { %>
-            <div class="comment">
-                <h3 class="comment-name"><%= comment.author %></h3>
-                <span class="comment-text"><%= comment.text %></span>
-            </div>
-        <% }) %>
-    </section>
+   
+ 
 </section>
 <%- include('./partials/foot') %>
